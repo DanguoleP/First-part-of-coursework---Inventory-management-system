@@ -7,6 +7,22 @@ class BaseItem(ABC):
         self._quantity = quantity
         self._price = price
 
+    @property
+    def item_id(self):
+        return self._item_id
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def quantity(self):
+        return self._quantity
+
+    @property
+    def price(self):
+        return self._price
+
     def add_stock(self, amount):
         self._quantity += amount
 
@@ -25,5 +41,9 @@ class InventoryItem(BaseItem):
         super().__init__(item_id, name, quantity, price)
         self._category = category
 
+    @property
+    def category(self):
+        return self._category
+
     def get_info(self):
-        return f"{self._name} ({self._category}) - {self._quantity} pcs - {self._price}€"
+        return f"{self.name} ({self.category}) - {self.quantity} pcs - {self.price}€"
