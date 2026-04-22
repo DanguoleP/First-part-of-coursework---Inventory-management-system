@@ -73,7 +73,7 @@ class InventoryManager:
         print(f"{'ID':<10}{'Name':<15}{'Quantity':<10}{'Price':<12}{'Category'}")
         print("-" * 55)
         
-        for item in self._items:
+        for item in sorted(self._items, key=lambda x: x._item_id):
             price_text = f"{item._price:.2f}€"
             print(f"{item._item_id:<10}{item._name:<15}{item._quantity:<10}{price_text:<12}{item._category}")
 
