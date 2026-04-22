@@ -42,12 +42,40 @@ class InventoryManager:
             item._quantity = new_quantity
             return True
         return False
+    
+    def update_price(self, item_id, new_price):
+        item = self.find_item_by_id(item_id)
+        if item is not None:
+            item._price = new_price
+            return True
+        return False
 
+    def get_total_items(self):
+        return len(self._items)
+
+    def get_total_quantity(self):
+        total = 0
+        for item in self._items:
+            total += item._quantity
+        return total
+
+    def get_total_value(self):
+        total = 0
+        for item in self._items:
+            total += item._quantity * item._price
+        return total
+    
     def print_items(self):
         if not self._items:
             print("Inventory empty.")
+            return
+
+        print(f"{'ID':<10}{'Name':<15}{'Quantity':<10}{'Price':<12}{'Category'}")
+        print("-" * 55)
+        
         for item in self._items:
-            print(item.get_info())
+            price_text = f"{item._price:.2f}€"
+            print(f"{item._item_id:<10}{item._name:<15}{item._quantity:<10}{price_text:<12}{item._category}")
 
     def save_to_csv(self, filename):
         try:

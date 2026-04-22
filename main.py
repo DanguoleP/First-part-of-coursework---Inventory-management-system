@@ -10,6 +10,9 @@ def menu():
     print("5 Load inventory")
     print("6 Find item by ID")
     print("7 Find item by name")
+    print("8 Update quantity")
+    print("9 Update price")
+    print("10 Show statistics")
     print("0 Exit")
 
 def main():
@@ -81,7 +84,11 @@ def main():
             item = manager.find_item_by_id(item_id)
 
             if item:
-                print("Found:", item.get_info())
+                print("\n=== Item Found ===")
+                print(f"{'ID':<10}{'Name':<15}{'Quantity':<10}{'Price':<12}{'Category'}")
+                print("-" * 60)
+                price_text = f"{item._price:.2f}€"
+                print(f"{item._item_id:<10}{item._name:<15}{item._quantity:<10}{price_text:<12}{item._category}")
             else:
                 print("Item not found.")
 
@@ -90,9 +97,55 @@ def main():
             item = manager.find_item_by_name(name)
 
             if item:
-                print("Found:", item.get_info())
+                print("\n=== Item Found ===")
+                print(f"{'ID':<10}{'Name':<15}{'Quantity':<10}{'Price':<12}{'Category'}")
+                print("-" * 60)
+                price_text = f"{item._price:.2f}€"
+                print(f"{item._item_id:<10}{item._name:<15}{item._quantity:<10}{price_text:<12}{item._category}")
             else:
                 print("Item not found.")
+
+        elif choice == "8":
+            item_id = input("Enter ID: ")
+
+            try:
+                new_quantity = int(input("New quantity: "))
+            except ValueError:
+                print("Invalid input. Quantity must be a number.")
+                continue
+
+            if new_quantity < 0:
+                print("Quantity cannot be negative.")
+                continue
+
+            if manager.update_quantity(item_id, new_quantity):
+                print("Quantity updated.")
+            else:
+                print("Item not found.")
+
+        elif choice == "9":
+            item_id = input("Enter ID: ")
+
+            try:
+                new_price = float(input("New price: "))
+            except ValueError:
+                print("Invalid input. Price must be a number.")
+                continue
+
+            if new_price < 0:
+                print("Price cannot be negative.")
+                continue
+
+            if manager.update_price(item_id, new_price):
+                print("Price updated.")
+            else:
+                print("Item not found.")
+
+        elif choice == "10":
+            print("\n=== Inventory Statistics ===")
+            print(f"Total item types: {manager.get_total_items()}")
+            print(f"Total quantity: {manager.get_total_quantity()}")
+            print(f"Total value: {manager.get_total_value():.2f} €")
 
         elif choice == "0":
             manager.save_to_csv(filename)
