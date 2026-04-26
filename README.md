@@ -13,7 +13,7 @@ Programa sukurta naudojant **Object-Oriented Programming (OOP)** principus:
 1. Įsidiek Python  
 2. Atsisiųsk projektą iš GitHub  
 3. Atidaryk terminalą projekto aplanke  
-4. Paleisk: "python main.py"
+4. Paleisk: python main.py
 
 #### Kaip naudoti programą?
 1. Įvesk savo username  
