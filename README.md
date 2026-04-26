@@ -255,13 +255,14 @@ class BaseItem(ABC):
 ```python
 _instance = None
 ```
-**Singleton** pasirinktas, nes inventorius turi būti valdomas centralizuotai – naudojant kelis objektus galėtų atsirasti duomenų neatitikimai, todėl šis pattern yra tinkamesnis nei, pavyzdžiui, **Factory pattern**. Jis užtikrina, kad egzistuoja tik vienas **InventoryManager** objektas, leidžiantis centralizuotai valdyti visą inventorių ir išvengti duomenų nesuderinamumo.
+**Singleton** pasirinktas, nes inventorius turi būti valdomas centralizuotai – naudojant kelis objektus galėtų atsirasti duomenų neatitikimai, todėl šis pattern yra tinkamas. Jis užtikrina, kad egzistuoja tik vienas **InventoryManager** objektas, leidžiantis centralizuotai valdyti visą inventorių ir išvengti duomenų nesuderinamumo.
 
 #### Composition
 ```python
 self._items = []
 ```
-InventoryManager turi prekių sąrašą **self._items**, kuriame saugomi **InventoryItem** objektai. Tai parodo composition ryšį, nes **InventoryManager** objektas valdo kitus objektus.
+InventoryManager turi prekių sąrašą **self._items**, kuriame saugomi **InventoryItem** objektai. 
+Tai parodo composition ryšį, nes **InventoryManager** objektas valdo kitus objektus.
 
 #### File Handling
 ```python
