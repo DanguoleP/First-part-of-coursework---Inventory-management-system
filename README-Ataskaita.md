@@ -1,6 +1,9 @@
 # Inventory Management System Report
+
 Darba atliko: Danguolė Parachnevičiūtė EDIf-25/2
+---
 Darba tikrino: Tomasz Szturo
+---
 Šio darbo tema – inventoriaus valdymo sistemos kūrimas naudojant Python ir objektinio programavimo (OOP) principus.
 
 ### Įvadas 
