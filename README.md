@@ -1,7 +1,7 @@
 # Inventory Management System Report
 Šio darbo tema – inventoriaus valdymo sistemos kūrimas naudojant Python ir objektinio programavimo (OOP) principus.
 
-### 1. Įvadas 
+### Įvadas 
 
 #### Kokia tai aplikacija?
 Ši aplikacija yra Inventory Management System, sukurta naudojant Python, kuri leidžia vartotojui valdyti inventorių: pridėti, pašalinti, ieškoti ir keisti prekes (items). Šio projekto tikslas – sukurti sistemą, pritaikant OOP principus ir užtikrinant efektyvų bei patogų vartotojo inventoriaus valdymą. Kiekvienas vartotojas turi savo inventorių, kuris saugomas atskirame CSV faile.
@@ -9,33 +9,29 @@
 Programa sukurta naudojant **Object-Oriented Programming (OOP)** principus:  
 **Encapsulation, Inheritance, Polymorphism ir Abstraction**.
 
----
-
 #### Kaip paleisti aplikaciją?
 1. Įsidiek Python  
 2. Atsisiųsk projektą iš GitHub  
 3. Atidaryk terminalą projekto aplanke  
 4. Paleisk: "python main.py"
 
-### Kaip naudoti programą?
+#### Kaip naudoti programą?
 1. Įvesk savo username  
 2. Pasirink vieną veiksmą iš meniu:
-    1 Add item
-    2 Remove item
-    3 Show inventory
-    4 Save inventory
-    5 Load inventory
-    6 Find item by ID
-    7 Find item by name
-    8 Update quantity
-    9 Update price
-    10 Show statistics
-    0 Exit
+    - 1 Add item
+    - 2 Remove item
+    - 3 Show inventory
+    - 4 Save inventory
+    - 5 Load inventory
+    - 6 Find item by ID
+    - 7 Find item by name
+    - 8 Update quantity
+    - 9 Update price
+    - 10 Show statistics
+    - 0 Exit
 3. Išeinant programa automatiškai išsaugo duomenis  
 
 ---
-
-## 2. Analizė 
 
 ### Functional Requirements
 1. Pridėti prekę (**Add item**)  
@@ -48,7 +44,8 @@ Programa sukurta naudojant **Object-Oriented Programming (OOP)** principus:
 8. Keisti prekės kiekį (**Update quantity**)  
 9. Keisti prekės kainą (**Update price**)  
 10. Peržiūrėti statistiką (**Show statistics**)  
-Šios funkcijos yra įgyvendintos programos kode naudojant atitinkamus metodus. Toliau pateikiami kodo fragmentai parodo, kaip šie reikalavimai realizuoti praktikoje.
+Šios funkcijos yra įgyvendintos programos kode naudojant atitinkamus metodus. 
+Toliau pateikiami kodo fragmentai parodo, kaip šie reikalavimai realizuoti praktikoje.
 
 ### Pavyzdžiai
 
@@ -61,8 +58,7 @@ def add_item(self, item):
     return False
 ```
 Funkcija **add_item** leidžia vartotojui pridėti naują prekę į inventorių.
-Ji tikrina, ar prekės ID jau neegzistuoja, taip užtikrindama duomenų unikalumą
-ir išvengdama dubliavimo.
+Ji tikrina, ar prekės ID jau neegzistuoja, taip išvengia dubliavimo.
 
 ### 2. 
 ```python
@@ -73,7 +69,8 @@ def remove_item(self, item_id):
             return True
     return False
 ```
-Funkcija **remove_item** leidžia pašalinti prekę pagal jos ID. Jei prekė randama, ji pašalinama iš inventoriaus sąrašo.
+Funkcija **remove_item** leidžia pašalinti prekę pagal jos ID. 
+Jei prekė randama, ji pašalinama iš inventoriaus sąrašo.
 
 ### 3.
 ```python
@@ -89,7 +86,8 @@ def print_items(self):
         price_text = f"{item._price:.2f}€"
         print(f"{item._item_id:<10}{item._name:<15}{item._quantity:<10}{price_text:<12}{item._category}")
 ```
-Funkcija **print_items** leidžia vartotojui matyti visą inventorių. Prekės pateikiamos lentelės forma su ID, pavadinimu, kiekiu, kaina ir kategorija.
+Funkcija **print_items** leidžia vartotojui matyti visą inventorių. 
+Prekės pateikiamos lentelės forma su ID, pavadinimu, kiekiu, kaina ir kategorija.
 
 ### 4.
 ```python
@@ -112,7 +110,8 @@ def save_to_csv(self, filename):
     except Exception as e:
         print("Error saving file:", e)
 ```
-Funkcija **save_to_csv** išsaugo inventoriaus duomenis į CSV failą. Kiekviena prekė įrašoma kaip atskira eilutė.
+Funkcija **save_to_csv** išsaugo inventoriaus duomenis į CSV failą. 
+Kiekviena prekė įrašoma kaip atskira eilutė.
 
 ### 5.
 ```python
@@ -142,7 +141,8 @@ def load_from_csv(self, filename):
     except Exception as e:
         print("Error loading file:", e)
 ```
-Funkcija l**oad_from_csv** užkrauna anksčiau išsaugotus inventoriaus duomenis iš CSV failo. Tai leidžia vartotojui tęsti darbą su savo inventoriaus duomenimis.
+Funkcija **load_from_csv** užkrauna anksčiau išsaugotus inventoriaus duomenis iš CSV failo. 
+Tai leidžia vartotojui tęsti darbą su savo inventoriaus duomenimis.
 
 ### 6.
 ```python
@@ -152,7 +152,8 @@ def find_item_by_id(self, item_id):
             return item
     return None
 ```
-Funkcija **find_item_by_id** leidžia rasti konkrečią prekę pagal jos ID. Jei prekė nerandama, grąžinama None.
+Funkcija **find_item_by_id** leidžia rasti konkrečią prekę pagal jos ID. 
+Jei prekė nerandama, grąžinama None.
 
 ### 7.
 ```python
@@ -162,7 +163,8 @@ def find_item_by_name(self, name):
             return item
     return None
 ```
-Funkcija **find_item_by_name** leidžia rasti prekę pagal pavadinimą. Paieška nėra jautri didžiosioms ir mažosioms raidėms.
+Funkcija **find_item_by_name** leidžia rasti prekę pagal pavadinimą. 
+Paieška nėra jautri didžiosioms ir mažosioms raidėms.
 
 ### 8.
 ```python
@@ -173,7 +175,8 @@ def update_quantity(self, item_id, new_quantity):
         return True
     return False
 ```
-Funkcija **update_quantity** leidžia pakeisti pasirinktos prekės kiekį. Pirmiausia prekė surandama pagal ID, tada jos kiekis atnaujinamas.
+Funkcija **update_quantity** leidžia pakeisti pasirinktos prekės kiekį. 
+Pirmiausia prekė surandama pagal ID, tada jos kiekis atnaujinamas.
 
 ### 9.
 ```python
@@ -184,6 +187,8 @@ def update_price(self, item_id, new_price):
         return True
     return False
 ```
+Funkcija **update_price** leidžia pakeisti pasirinktos prekės kaina. 
+Pirmiausia prekė surandama pagal ID, tada jos kaina yra atnaujinama.
 
 ### 10.
 ```python
@@ -202,11 +207,17 @@ def get_total_value(self):
         total += item._quantity * item._price
     return total
 ```
-Šios funkcijos leidžia peržiūrėti inventoriaus statistiką. **get_total_items** grąžina skirtingų prekių skaičių, **get_total_quantity** apskaičiuoja bendrą prekių kiekį, o **get_total_value** apskaičiuoja bendrą inventoriaus vertę.
+Šios funkcijos leidžia peržiūrėti inventoriaus statistiką:
+- **get_total_items** grąžina skirtingų prekių skaičių
+- **get_total_quantity** apskaičiuoja bendrą prekių kiekį
+- **get_total_value** apskaičiuoja bendrą inventoriaus vertę
+
+---
 
 ### OOP principai
 #### Encapsulation
-Duomenys saugomi apsaugotuose atributuose, pažymėtuose apatiniu brūkšniu, pvz. **_item_id, _name**. Taip parodoma, kad šie duomenys neturėtų būti tiesiogiai keičiami iš išorės.
+Duomenys saugomi apsaugotuose atributuose, pažymėtuose apatiniu brūkšniu, pvz. **_item_id, _name**. 
+Taip parodoma, kad šie duomenys neturėtų būti tiesiogiai keičiami iš išorės.
 ```python
 self._item_id
 self._name
@@ -250,7 +261,7 @@ _instance = None
 ```python
 self._items = []
 ```
-InventoryManager turi prekių sąrašą **self._items**, kuriame saugomi **InventoryItem** objektai. Tai parodo composition ryšį, nes InventoryManager objektas valdo kitus objektus.
+InventoryManager turi prekių sąrašą **self._items**, kuriame saugomi **InventoryItem** objektai. Tai parodo composition ryšį, nes **InventoryManager** objektas valdo kitus objektus.
 
 #### File Handling
 ```python
@@ -263,11 +274,11 @@ Duomenys saugomi faile:
 ```python
 data/{username}_inventory.csv
 ```
+---
 
-#### UML diagrama 
-
+### UML diagrama 
 Ši UML diagrama vaizduoja sistemos klasių struktūrą ir jų tarpusavio ryšius.
-![UML Diagram](uml.png)
+![UML diagrama](uml.png)
 
 #### UML paaiškinimas
 - InventoryItem paveldi BaseItem - Inheritance
@@ -275,7 +286,9 @@ data/{username}_inventory.csv
 - InventoryManager turi InventoryItem -  Composition
 - TestManager naudojamas testavimui
 
-#### Testing (Unit Testing)
+---
+
+### Testing (Unit Testing)
 Programoje naudojamas Python **unittest** framework. Testai yra skirti patikrinti pagrindinį **InventoryManager** funkcionalumą: prekių pridėjimą, pašalinimą, paiešką, duomenų atnaujinimą bei išsaugojimą ir užkrovimą iš CSV failo.
 ```python
 import unittest
@@ -367,26 +380,32 @@ class TestManager(unittest.TestCase):
 Testuose naudojami metodai **setUp()** ir **tearDown()**. **setUp()** paruošia švarią testavimo aplinką prieš kiekvieną testą, o **tearDown()** pašalina testavimo metu sukurtą CSV failą. Tai svarbu, nes kiekvienas testas turi buti individualus. 
 
 #### Testai tikrina:
-- test_add_item – ar prekė sėkmingai pridedama į inventorių;
-- test_no_duplicate_id – ar sistema neleidžia pridėti dviejų prekių su tuo pačiu ID;
-- test_remove_item – ar prekė sėkmingai pašalinama;
-- test_save_and_load – ar duomenys teisingai išsaugomi ir užkraunami iš CSV failo;
-- test_find_item_by_id – ar veikia paieška pagal ID;
-- test_find_item_by_name – ar veikia paieška pagal pavadinimą;
-- test_update_quantity – ar galima pakeisti prekės kiekį.
+- **test_add_item** – ar prekė sėkmingai pridedama į inventorių;
+- **test_no_duplicate_id** – ar sistema neleidžia pridėti dviejų prekių su tuo pačiu ID;
+- **test_remove_item** – ar prekė sėkmingai pašalinama;
+- **test_save_and_load** – ar duomenys teisingai išsaugomi ir užkraunami iš CSV failo;
+- **test_find_item_by_id** – ar veikia paieška pagal ID;
+- **test_find_item_by_name** – ar veikia paieška pagal pavadinimą;
+- **test_update_quantity** – ar galima pakeisti prekės kiekį.
 Šie unit testai padeda užtikrinti, kad pagrindinis programos funkcionalumas veikia teisingai ir stabiliai.
 
-#### Rezultatai
+---
+
+### Rezultatai
 - Programa sėkmingai veikia ir leidžia valdyti inventorių (pridėti, pašalinti, ieškoti bei atnaujinti duomenis)
 - Duomenys yra saugomi ir užkraunami naudojant CSV failus, užtikrinant duomenų išlikimą
-- Testai patvirtina pagrindinių sistemos funkcijų veikimą, o Singleton pattern užtikrina vieną InventoryManager objektą
+- Testai patvirtina pagrindinių sistemos funkcijų veikimą, o **Singleton pattern** užtikrina vieną **InventoryManager** objektą
 - Didžiausi iššūkiai buvo susiję su teisingu duomenų išsaugojimu CSV faile ir sistemos architektūros organizavimu
-- Taip pat reikėjo papildomo laiko išmokti naudotis GitHub ir valdyti projekto versijas
+- Taip pat reikėjo papildomo laiko išmokti naudotis **GitHub** ir valdyti projekto versijas
 
-#### Išvados
+---
+
+### Išvados
 Šis darbas parodė, kaip galima sukurti paprastą Inventory Management System, o jo metu buvo sukurta veikianti sistema, pritaikant visus pagrindinius OOP principus. Programa leidžia paprastai valdyti inventorių – pridėti, pašalinti, ieškoti ir atnaujinti prekes, o duomenys saugomi CSV failuose. Ateityje sistema gali būti plečiama pridedant grafinę vartotojo sąsają (GUI) arba naudojant duomenų bazę vietoje CSV failų. Taip pat būtų galima pagerinti klaidų tikrinimą, pridėti daugiau funkcijų, sukurti pažangesnę paiešką ir filtravimą bei įdiegti vartotojo autentifikaciją.
 
-#### Šaltiniai
+---
+
+### Šaltiniai
 - About GitHub  https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
 - Git command cheat sheet (1) https://education.github.com/git-cheat-sheet-education.pdf
 - Git command cheat sheet (2) https://about.gitlab.com/images/press/git-cheat-sheet.pdf
